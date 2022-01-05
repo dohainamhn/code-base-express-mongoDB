@@ -1,0 +1,37 @@
+openapi: 3.0.0
+nswagger: "2.0"
+info: 
+  title: "User api documents"
+  description: "This is user api documents"
+  version: 1.0
+  contact:
+    email: "namdohai@gmail.com"
+  servers:
+    -url: "http://localhost:5001"
+    description: "this is local server"
+schemes: [http, https]
+
+paths:
+  /api/users:
+    get: 
+      summary: Get users
+      description: this return users
+      responses:
+        200:
+          description: Success
+          schema:
+            type: '#/components/schemas/User'
+        400: 
+          description: User input error
+        500:
+          description: Interal server error
+      
+Components:
+  Schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+        name:
+          type: string
